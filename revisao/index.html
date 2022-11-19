@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão</title>
+    <!--<link rel="stylesheet" href="style.css" media="all">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-3">
+        <button class="btn btn-primary" id="toast-btn">Ver Toast</button>
+        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal">Ver modal</button>
+
+        <div class="toast-container bottom-0 end-0 p-3">
+            <div class="toast" id="toast-mensagem">
+                <div class="toast-header">
+                    <strong>Alerta de mensagem</strong>
+                </div>
+                <div class="toast-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero molestias accusantium quod dolore earum amet sint a ea, culpa odio nihil, sit eum quisquam recusandae optio sapiente. Numquam, rem qui?
+                    <div class="mt-2 pt-2 border-top end-0">
+                        <button class="btn btn-danger">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Revisão</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nesciunt quisquam doloremque atque, perspiciatis mollitia. Perferendis mollitia architecto dignissimos et ducimus. Ut, obcaecati laudantium praesentium harum veniam asperiores similique mollitia?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <h5>Saiba mais</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const btnToast = document.getElementById('toast-btn')
+        const mensagemToast = document.getElementById('toast-mensagem')
+
+        if(btnToast){
+            btnToast.addEventListener('click', function(){
+                const toast = new bootstrap.Toast(mensagemToast)
+                toast.show()
+            })
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            const modalTime = new bootstrap.Modal('#modal')
+            setTimeout(function(){
+                modalTime.show()
+            }, 3000)
+        })
+    </script>
+</body>
+</html>

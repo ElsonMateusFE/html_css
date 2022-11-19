@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* font-family: 'Saira', Arial sans-serif; */
+
+:root {
+    --fontepadrao: 'Saira', Arial sans-serif;
+    --cor01: #1A1466;
+    --cor02: #2A21A8;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: var(--fontepadrao);
+}
+
+header {
+    align-items: center;
+    background-color: #1A1466;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+
+header h1 {
+    color: white;
+}
+
+header li {
+    display: inline;
+    margin-left: 15px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover {
+    border-bottom: 3px solid white;
+}
+
+main {
+    max-width: 480px;
+    padding: 0px 10px;
+}
+
+section#sobre-a-loja div.imagem img {
+    display: block;
+    margin: 4vh auto;
+    width: 450px;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.333);
+}
+
+section#sobre-a-loja div.info {
+    margin: 10px 5px;
+}
+
+section#sobre-a-loja div.info h2 {
+    color: var(--cor01);
+    border-bottom: 2px solid var(--cor02);
+}
+
+section#sobre-a-loja div.info p {
+    margin-top: 15px;
+    text-align: justify;
+}
+
+section#produtos {
+    margin: 5vh auto;
+}
+
+section#produtos h2 {
+    border-bottom: 2px solid var(--cor02);
+    color: var(--cor01);
+    display: block;
+}
+
+section#produtos article {
+    line-height: 2.2em;
+}
+
+section#produtos article h3 {
+    margin-top: 10px;
+    font-size: 1.7em;
+}
+
+section#produtos article h4 {
+    border-bottom: 2px solid var(--cor01);
+    display: inline;
+    font-size: 1.4em;
+}
+
+section#produtos article button {
+    color: white;
+    cursor: pointer;
+    background-color: var(--cor02);
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    font-size: .9em;
+    font-weight: bolder;
+}
+
+section#produtos article button:hover {
+    background-color: rgb(69, 69, 234);
+}
+
+section#produtos article button:active {
+    background-color: rgb(75, 179, 79);
+}
+
+section#produtos div.itens article {
+    margin: 20px auto;
+    width: 430px;
+}
+
+section#produtos article span#carrinho {
+    vertical-align: bottom;
+}
+
+section#produtos div.itens img {
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.250);
+    display: block;
+    margin: 40px auto;
+    width: 100%;
+}
+
+footer {
+    color: white;
+    background-color: var(--cor01);
+    text-align: center;
+    font-size: 1.1em;
+    padding: 10px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Numérico</title>
+    <link rel="stylesheet" href="estilo/style.css" media="all">
+</head>
+<body>
+    <header>
+        <h1>Formulário Numérico</h1>
+    </header>
+    <main>
+        <section id="formulario">
+            <div id="campos">
+                <form id="form-numerico">
+                    <label for="valora">Valor A:</label>
+                    <input type="number" name="valora" id="valora" required placeholder="Digite um valor">
+                    <label for="valorb">Valor B:</label>
+                    <input type="number" name="valorb" id="valorb" required placeholder="Digite um valor">
+                    <button type="submit">Executar</button>
+                </form>
+            </div>
+            <div id="mensagens">
+                <p class="mensagem-positiva">
+                    O valor B é maior que o valor A
+                </p>
+                <p class="mensagem-negativa">
+                    O valor B não é maior que o valor A
+                </p>
+            </div>
+        </section>
+    </main>
+    <script>
+        const form = document.getElementById('form-numerico')
+
+        form.addEventListener('submit', function(evento){
+            evento.preventDefault()
+
+            const valorA = document.getElementById('valora')
+            const valorB = document.getElementById('valorb')
+            const blocoPositivo = document.querySelector('.mensagem-positiva')
+            const blocoNegativo = document.querySelector('.mensagem-negativa')
+
+            blocoPositivo.style.display = 'block'
+            blocoNegativo.style.display = 'block'
+
+            if(valorB.value > valorA.value){
+                blocoPositivo.style.display = 'none'
+
+                valorA.value = ''
+                valorB.value = ''
+            }else{
+                blocoNegativo.style.display = 'none'
+
+                valorA.value = ''
+                valorB.value = ''
+            }
+        })
+    </script>
+</body>
+</html>

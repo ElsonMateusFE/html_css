@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* font-family: 'Saira', Arial sans-serif; */
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Saira', Arial sans-serif;;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0px auto;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    padding: 16px 0px 0px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 56px;
+}
+
+.submenu{
+    display: none;
+    border: 1px solid green;
+    background-color: white;
+    position: absolute;
+    left: 0px;
+    width: 300px;
+    top: 100%;
+}
+
+.menu > li {
+    float: left;
+    list-style: none;
+    padding: 16px;
+    border-top: 3px solid transparent;
+    position: relative;
+}
+
+.clear {
+    clear: both;
+}
+
+.menu li:hover .submenu {
+    display: block;
+}
+
+.menu li:hover {
+    border-color: green;
+}
+
+.submenu li {
+    display: block;
+    padding: 8px;
+}
+
+.conteudo {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.noticia img {
+    max-width: 100%;
+}
+
+.destaque {
+    margin-bottom: 56px;
+}
+
+.destaque .noticia a {
+    display: flex;
+    font-size: 2em;
+}
+
+.destaque .noticia img {
+    margin-right: 8px;
+}
+
+section h2 {
+    margin-bottom: 32px;
+}
+
+aside {
+    padding-left: 40px;
+}
+
+aside .noticia {
+    margin-bottom: 24px;
+}
+
+.noticias {
+    display: grid;
+    grid-template-columns: repeat(3, 32.6%);
+    column-gap: 1%;
+    row-gap: 5%;
+}
+
+@media screen and (max-width: 767px){
+    .conteudo {
+        display: flex;
+    }
+
+    .container {
+        max-width: 90%;
+    }
+
+    .destaque .noticia a {
+        display: block;
+        font-size: 1.5em;
+    }
+
+    .destaque .noticia img {
+        margin-right: 0px;
+    }
+
+    .noticias {
+        display: block;
+    }
+
+    .noticias .noticia {
+        margin-left: 32px;
+    }
+
+    aside {
+        padding-left: 0;
+    }
+
+    header div.container {
+        flex-direction: column;
+    }
+
+    .submenu {
+        display: block;
+        width: 100%;
+        position: relative;
+        border: none;
+    }
+
+    .menu > li {
+        clear: both;
+    }
+
+    .submenu li {
+        display: block;
+        padding: 8px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .container{
+        max-width: 90%;
+        grid-template-columns: repeat(3, 23%);
+    }
+}

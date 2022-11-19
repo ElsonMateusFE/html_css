@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrao - Cards</title>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <style>
+        img {
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="carousel-exemplo" class="carousel carousel-fade slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div data-bs-interval="1000" class="carousel-item active">
+                <img class="d-block w-100" src="http://conteudo.imguol.com.br/c/esporte/07/2022/10/22/modric-comemora-gol-do-real-madrid-sobre-o-sevilla-pelo-campeonato-espanhol-1666470516967_v2_1024x683.jpg">
+                <div class="carousel-caption">
+                    <h2>Real Madrid 01</h2>
+                </div>
+            </div>
+
+            <div data-bs-interval="1000" class="carousel-item">
+                <img class="d-block w-100" src="https://conteudo.imguol.com.br/c/esporte/bb/2022/01/08/vinicius-jr-comemora-gol-marcado-pelo-real-madrid-contra-o-valencia-1641677017189_v2_900x506.jpg">
+                <div class="carousel-caption">
+                    <h2>Real Madrid 02</h2>
+                </div>
+            </div>
+
+            <div data-bs-interval="1000" class="carousel-item">
+                <img class="d-block w-100" src="../../revisao/imagens/space.jpg">
+                <div class="carousel-caption">
+                    <h2>Space</h2>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button data-bs-target="#carousel-exemplo" data-bs-slide="prev" class="carousel-control-prev" type="button">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button data-bs-target="#carousel-exemplo" data-bs-slide="next" class="carousel-control-next" type="button">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel-exemplo" class="active" data-bs-slide-to="0"></button>
+                <button type="button" data-bs-target="#carousel-exemplo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carousel-exemplo" data-bs-slide-to="2"></button>
+            </div>
+        </div>
+
+    </div>
+    <script src="lib/bootstrap.bundle.min.js"></script>
+</body>
+</html>

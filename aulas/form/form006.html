@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        /* font-family: 'Saira', Arial sans-serif; */
+
+        * {
+            font-family: 'Saira', Arial sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exemplo de Formulário</h1>
+    </header>
+    <fieldset>
+        <legend>EDF</legend>
+        <form action="cadastro.php" method="post" autocomplete="on">
+            <p>
+                <label for="cor">
+                    Cor:
+                </label>
+                <input type="color" name="cor" id="cor" value="#ff0000">
+            </p>
+            <p>
+                <label for="range">Nível de Satisfação</label>
+                <input type="range" name="range" id="range" min="1" max="10" value="2">
+            </p>
+            <p>
+                <label for="file">Foto do perfil:</label>
+                <input type="file" name="file" id="file">
+            </p>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
+        </form>
+    </fieldset>
+</body>
+</html>

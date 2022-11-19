@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../revisao/style.css" type="text/css">
+    <title>Formulário</title>
+</head>
+<body>
+    <form action="cadastro.php" method="get" autocomplete="on">
+        <p>
+            <label for="n1">Número 1:</label>
+            <input type="number" name="n1" id="n1" required min="0" max="50" oninput="somar.innerHTML = Number(n1.value) + Number(n2.value)">
+        </p>
+
+        <p>
+            <label for="n2">Número 2:</label>
+            <input type="number" name="n2" id="n2" required min="0" max="50" oninput="somar.innerHTML = Number(n1.value) + Number(n2.value)">
+        </p>
+
+        <p>
+            <label for="somar">Somar:</label>
+            <output name="somar" id="somar">0</output>
+        </p>
+
+        <p>
+            <label for="range">Nível</label>
+            <input type="range" name="range" id="range" min="0" max="10" oninput="nivel.innerHTML = Number(range.value)">
+            <output name="nivel" id="nivel">5</output>
+        </p>
+
+        <p>
+            <label for="ano">Nascimento</label>
+            <input type="number" name="ano" id="ano" min="2000" max="2022" oninput="suaIdade()">
+        </p>
+
+        <p>
+            <label for="idade">Idade:</label>
+            <output name="idade" id="idade">0</output>
+        </p>
+
+        <p>
+            <input type="submit" value="Enivar">
+        </p>
+    </form>
+    <script>
+        function suaIdade(){
+            let ano_atual = new Date().getUTCFullYear();
+
+            idade.innerHTML = Number(ano_atual) - Number(ano.value);
+        }
+    </script>
+</body>
+</html>
