@@ -217,8 +217,8 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="js/slick-1.8.1/slick/slick.min.js"></script>
     <script src="js/slick-1.8.1/slick/slick.js"></script>
+    <script src="js/slick-1.8.1/slick/slick.min.js"></script>
     <script src="js/jQuery-Mask-Plugin-master/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
     <script src="js/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
     <script src="js/jquery-validation-1.19.5/dist/localization/messages_pt_BR.min.js"></script>
@@ -229,17 +229,17 @@
             })
 
             $('#carousel-imagem').slick({
-                autoplay: true,
+                autoplay: true
             })
 
-            $('#telefone').mask('AAA-AAA',{
-                placeholder: 'AAA-AAA'
+            $('#telefone').mask('(00)00000-0000SSS',{
+                placeholder: '(00)00000-0000SSS'
             })
 
             $('form').validate({
                 rules:{
                     telefone:{
-                        required: true,
+                        required: true
                     }
                 },
                 messages:{
