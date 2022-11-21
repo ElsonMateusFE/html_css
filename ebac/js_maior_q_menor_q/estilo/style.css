@@ -39,6 +39,16 @@ section#formulario label {
 section#formulario input {
     display: block;
     margin: auto;
+    padding: 3px;
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea:focus {
+    outline-color: yellow;
 }
 
 section#formulario button{
