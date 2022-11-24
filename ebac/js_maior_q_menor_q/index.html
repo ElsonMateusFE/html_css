@@ -38,23 +38,24 @@
         form.addEventListener('submit', function(evento){
             evento.preventDefault()
 
-            const valora = document.getElementById('valora')
-            const valorb = document.getElementById('valorb')
-            const mensagemPositiva = document.querySelector('.mensagem-positiva')
-            const mensagemNegativo = document.querySelector('.mensagem-negativa')
-            mensagemPositiva.style.display = 'block'
-            mensagemNegativo.style.display = 'block'
+            const valorA = document.getElementById('valora')
+            const valorB = document.getElementById('valorb')
+            const memPositivo = document.querySelector('.mensagem-positiva')
+            const memNegativo = document.querySelector('.mensagem-negativa')
 
-            if(valorb.value > valora.value){
-                mensagemPositiva.style.display = 'none'
+            memPositivo.style.display = 'block'
+            memNegativo.style.display = 'block'
 
-                valora.value = ''
-                valorb.value = ''
+            if(valorB.value > valorA.value){
+                memPositivo.style.display = 'none'
+
+                valorA.value = ''
+                valorB.value = ''
             }else{
-                mensagemNegativo.style.display = 'none'
+                memNegativo.style.display = 'none'
 
-                valora.value = ''
-                valorb.value = ''
+                valorA.value = ''
+                valorB.value = ''
             }
         })
     </script>
