@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     $('header button').click(function(){
         $('form').slideDown()
     })
@@ -7,24 +8,21 @@ $(document).ready(function(){
         $('form').slideUp()
     })
 
-    $('form').on('submit', function(evento){
-        evento.preventDefault()
+    $('form').on('submit', function(e){
+        e.preventDefault()
 
-        const inputImagem = $('#endereco-imagem-nova').val()
-        const addNovaImagem =
+        const enderecoDaNovaImagem = $('#endereco-imagem-nova').val()
+        const novoItem = 
         $('<li style="display: none"></li>')
-        $(`<img src="${inputImagem}" alt="Pintura de um gato">`).appendTo(addNovaImagem)
+        $(`<img src="${enderecoDaNovaImagem}">`).appendTo(novoItem)
         $(`<div class="overlay-imagem-link">
-        <a href="${inputImagem}" title="Ver imagem em tamanho real" target="_blank">
-            Ver imagem em tamanho real
-        </a>
-        </div>`).appendTo(addNovaImagem)
-
-        $(addNovaImagem).appendTo('ul')
-        $(addNovaImagem).fadeIn(3000)
-        $(addNovaImagem).click(function(){
-            $(addNovaImagem).css('text-decoration', 'line-through')
-        })
-        $('#endereco-imagem-nova').val('')
+              <a href="${enderecoDaNovaImagem}" title="Ver imagem em tamanho real" target="_blank">
+                 Ver imagem em tamanho real
+              </a>
+           </div>`
+    ).appendTo(novoItem)
+    $(novoItem).appendTo('ul')
+    $(novoItem).fadeIn(2000)
+    $('#endereco-imagem-nova').val('')
     })
 })

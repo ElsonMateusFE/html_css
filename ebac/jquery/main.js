@@ -23,6 +23,9 @@ $(document).ready(function(){
     ).appendTo(novoItem)
     $(novoItem).appendTo('ul')
     $(novoItem).fadeIn(2000)
+    $(novoItem).click(function(){
+        $(novoItem).css('text-decoration', 'line-through')
+    })
     $('#endereco-imagem-nova').val('')
     })
 })
