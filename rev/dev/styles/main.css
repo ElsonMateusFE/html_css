@@ -1,0 +1,35 @@
+.styleButton {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: black;
+}
+body {
+  background-color: #8484da;
+}
+header {
+  position: absolute;
+}
+header button {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: black;
+  transition: all ease 0.5s;
+}
+header button:hover {
+  transform: scale(1.2);
+}
+header .lista {
+  background-color: aqua;
+}
+header .lista-item {
+  background-color: black;
+}
+@media (max-width: 767px) {
+  body {
+    background-color: beige;
+  }
+}

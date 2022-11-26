@@ -1,10 +1,41 @@
-@cor01: blue;
-@cor02: green;
+@import 'mapacores.less';
+@breakpointTablet: ~"(max-width: 767px)";
 
-body {
-    background-color: @cor02;
+.styleButton {
+    color:  white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: black;
 }
 
-.resultado {
-    display: none;
+body {
+    background-color: #cores[backgroundColor];
+}
+
+header {
+    position: absolute;
+
+    button {
+        .styleButton();
+        transition: all ease .5s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    .lista {
+        background-color: aqua;
+
+        &-item {
+            background-color: black;
+        }
+    }
+}
+
+@media @breakpointTablet {
+    body {
+        background-color: beige;
+    }
 }
