@@ -40,19 +40,20 @@
 
             const valorA = document.getElementById('valora')
             const valorB = document.getElementById('valorb')
-            const memPositivo = document.querySelector('.mensagem-positiva')
-            const memNegativo = document.querySelector('.mensagem-negativa')
 
-            memPositivo.style.display = 'block'
-            memNegativo.style.display = 'block'
+            const mensagemPositiva = document.querySelector('.mensagem-positiva')
+            const mensagemNegativo = document.querySelector('.mensagem-negativa')
+
+            mensagemNegativo.style.display = 'block'
+            mensagemPositiva.style.display = 'block'
 
             if(valorB.value > valorA.value){
-                memPositivo.style.display = 'none'
+                mensagemPositiva.style.display = 'none'
 
                 valorA.value = ''
                 valorB.value = ''
             }else{
-                memNegativo.style.display = 'none'
+                mensagemNegativo.style.display = 'none'
 
                 valorA.value = ''
                 valorB.value = ''
