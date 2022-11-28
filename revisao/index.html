@@ -5,66 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revisão</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <style>
+        .accordion {
+            border: 1px solid black;
+            padding: 10px 0px;
+            cursor: pointer;
+        }
+
+        .accordion-content {
+            border-top: 1px solid black;
+        }
+
+        .accordion-content {
+            display: none;
+        }
+
+        .accordion.is-open .accordion-content {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-3">
-        <button class="btn btn-primary" data-bs-target="#modal" data-bs-toggle="modal">Ver botão modal</button>
-        <button class="btn btn-warning" id="btn-toast">Ver botão Toast</button>
-
-        <div class="modal" id="modal" data-bs-backdrop="static">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1>Revisão</h1>
-                        <button class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dolor consequuntur odit fuga, aliquid soluta incidunt illo, officia temporibus ducimus explicabo eos. Ratione, porro. Architecto deserunt voluptate esse corporis ad?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-dark">Ler mais...</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="toast-container bottom-0 end-0 p-3 position-fixed">
-            <div class="toast" id="toast-mensagem">
-                <div class="toast-header">
-                    <strong>Alerta</strong>
-                </div>
-                <div class="toast-body">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, tenetur commodi. Minima dignissimos, perspiciatis rem nobis, cumque cum aperiam optio voluptatibus soluta placeat veritatis ut porro? Magni quam tempora alias?</p>
-                    <div>
-                        <button class="btn btn-danger" data-bs-dismiss="toast">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="accordion">
+        <header class="accordion-header">
+            Nome do accordion
+        </header>
+        <p class="accordion-content">
+            Conteúdo
+        </p>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        /*
-        document.addEventListener('DOMContentLoaded', function(){
-            const modalTime = new bootstrap.Modal('#modal')
-
-            setTimeout(function(){
-                modalTime.show()
-            }, 2000)
-            
-        })
-        */
-
-        const btnToast = document.getElementById('btn-toast')
-        const toastMensagem = document.getElementById('toast-mensagem')
-
-        if(btnToast){
-            btnToast.addEventListener('click', function(){
-                const toast = new bootstrap.Toast(toastMensagem)
-
-                toast.show()
+        const accordions = document.querySelectorAll('.accordion-header')
+        for(let i = 0; i < accordions.length; i++){
+            accordions[i].addEventListener('click', function(evento){
+                //evento.target.parentNode.classList.toggle('is-open')
+                if(evento.target.parentNode.classList.contains('is-open')){
+                    evento.target.parentNode.classList.remove('is-open')
+                }else{
+                    evento.target.parentNode.classList.add('is-open')
+                }
             })
         }
     </script>
