@@ -215,49 +215,50 @@
                 </li>
             </ul>
         </div>
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-        <script src="js/slick-1.8.1/slick/slick.min.js"></script>
-        <script src="js/slick-1.8.1/slick/slick.js"></script>
-        <script src="js/jQuery-Mask-Plugin-master/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
-        <script src="js/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
-        <script src="js/jquery-validation-1.19.5/dist/localization/messages_pt_BR.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $('.menu-humburguer').click(function(){
-                    $('nav').slideToggle()
-                })
-
-                $('#carousel-imagem').slick({
-                    autoplay: true
-                })
-
-                $('#telefone').mask('(00)00000-0000SS',{
-                    placeholder: '(00)00000-0000SS'
-                })
-
-                $('form').validate({
-                    rules:{
-                        telefone:{
-                            required: true
-                        }
-                    },
-                    messages:{
-                        telefone: 'Campo'
-                    }
-                })
-
-                $('.lista-veiculos button').click(function(){
-                    const destino = $('#contato')
-                    const nomeVeiculo = $(this).parent().find('h3').text()
-
-                    $('#veiculo-interesse').val(nomeVeiculo)
-
-                    $('html').animate({
-                        scrollTop: destino.offset().top
-                    }, 2000)
-                })
-            })
-        </script>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="js/slick-1.8.1/slick/slick.min.js"></script>
+    <script src="js/slick-1.8.1/slick/slick.js"></script>
+    <script src="js/jQuery-Mask-Plugin-master/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
+    <script src="js/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="js/jquery-validation-1.19.5/dist/localization/messages_pt_BR.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.menu-humburguer').click(function(){
+                $('nav').slideToggle()
+            })
+
+            $('#carousel-imagem').slick({
+                autoplay: true
+            })
+
+            $('#telefone').mask('(00)00000-0000SSS',{
+                placeholder: '(XX)XXXXX-XXXX'
+            })
+
+            $('form').validate({
+                rules:{
+                    telefone:{
+                        required: true
+                    }
+                },
+                messages:{
+                    telefone: 'Campo...'
+                }
+            })
+
+            $('.lista-veiculos button').click(function(){
+                const destino = $('#contato')
+                const nomeVeiculo = $(this).parent().find('h3').text()
+
+                $('#veiculo-interesse').val(nomeVeiculo)
+
+                $('html').animate({
+                    scrollTop: destino.offset().top
+                }, 5000)
+            })
+
+        })
+    </script>
 </body>
 </html>
