@@ -1,0 +1,45 @@
+$cor01: blue;
+@mixin styleButton($padding: 10px){
+    color: white;
+    background-color: blue;
+    box-shadow: 2px 2px 20px black;
+    padding: $padding;
+}
+
+body {
+    background-color: $cor01;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+
+    h1 {
+        color: white;
+    }
+
+    li {
+        display: inline;
+    }
+    
+    .menu {
+        background-color: aqua;
+
+        &-item {
+            background-color: beige;
+        }
+    }
+
+    button {
+        @include styleButton();
+        transition: all ease .5s;
+
+        &:hover {
+            transform: scale(1.2);
+            background-color: lighten(blue, 25%);
+        }
+    }
+}
