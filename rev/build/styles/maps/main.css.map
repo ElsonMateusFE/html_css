@@ -1,1 +1,0 @@
-{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAEA,KACI,iBAHI","file":"../main.css","sourcesContent":["$cor01: blue;\r\n\r\nbody {\r\n    background-color: $cor01;\r\n}"]}
