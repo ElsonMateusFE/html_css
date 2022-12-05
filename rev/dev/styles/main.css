@@ -1,0 +1,12 @@
+body {
+  background-color: blue;
+}
+.btn-menu {
+  cursor: pointer;
+}
+.itens {
+  display: none;
+}
+.menu.is-open .itens {
+  display: block;
+}
