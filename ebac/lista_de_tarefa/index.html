@@ -31,17 +31,17 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('form').on('submit', function(evento){
-                evento.preventDefault()
+            $('#form-tarefas').on('submit', function(event){
+                event.preventDefault()
 
-                const tarefaInput = $('#tarefas-lista').val()
-                const addNovaTarefa =
+                const inputTarefa = $('#tarefas-lista').val()
+                const novaTarefa =
                 $('<li></li>')
-                $(` <span>${tarefaInput}</span>`).appendTo(addNovaTarefa)
+                $(`<span>${inputTarefa}</span>`).appendTo(novaTarefa)
 
-                $(addNovaTarefa).appendTo('ul')
-                $(addNovaTarefa).click(function(){
-                    $(addNovaTarefa).css('text-decoration', 'line-through')
+                $(novaTarefa).appendTo('ul')
+                $(novaTarefa).click(function(){
+                    $(novaTarefa).css('text-decoration', 'line-through')
                 })
                 $('#tarefas-lista').val('')
             })
