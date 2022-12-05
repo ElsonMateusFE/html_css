@@ -8,6 +8,11 @@ header {
     text-align: center;
 }
 
+img {
+    width: 300px;
+    border-radius: 20px;
+}
+
 section {
     background-color: white;
     border-radius: 10px;
@@ -15,6 +20,11 @@ section {
     width: 500px;
     margin: auto;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.39/63);
+}
+
+div {
+    text-align: center;
+    padding: 8px;
 }
 
 footer {
