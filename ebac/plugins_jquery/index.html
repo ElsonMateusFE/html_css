@@ -221,7 +221,7 @@
     <script src="js/slick-1.8.1/slick/slick.js"></script>
     <script src="js/jQuery-Mask-Plugin-master/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
     <script src="js/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
-    <script src="js/jquery-validation-1.19.5/dist/localization/messages_pt_BR.js"></script>
+    <script src="js/jquery-validation-1.19.5/dist/localization/messages_pt_BR.min.js"></script>
     <script>
         $(document).ready(function(){
             $('.menu-humburguer').click(function(){
@@ -232,7 +232,9 @@
                 autoplay: true
             })
 
-            $('#telefone').mask('SS(00)00000-0000')
+            $('#telefone').mask('(SS)000000000-000-00000-00',{
+                placeholder: 'Digite'
+            })
 
             $('form').validate({
                 rules:{
@@ -241,7 +243,7 @@
                     }
                 },
                 messages:{
-                    telefone: 'Campo...'
+                    telefone: 'Campo!!!!'
                 }
             })
 
@@ -253,7 +255,7 @@
 
                 $('html').animate({
                     scrollTop: destino.offset().top
-                }, 2000)
+                }, 3000)
             })
         })
     </script>

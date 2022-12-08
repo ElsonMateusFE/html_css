@@ -34,14 +34,14 @@
             $('#form-tarefas').on('submit', function(event){
                 event.preventDefault()
 
-                const inputTarefa = $('#tarefas-lista').val()
-                const novaTarefa =
+                const tarefasLista = $('#tarefas-lista').val()
+                const addNovaTarefa =
                 $('<li></li>')
-                $(`<span>${inputTarefa}</span>`).appendTo(novaTarefa)
+                $(`<span>${tarefasLista}</span>`).appendTo(addNovaTarefa)
 
-                $(novaTarefa).appendTo('ul')
-                $(novaTarefa).click(function(){
-                    $(novaTarefa).css('text-decoration', 'line-through')
+                $(addNovaTarefa).appendTo('ul')
+                $(addNovaTarefa).click(function(){
+                    $(addNovaTarefa).css('text-decoration', 'line-through')
                 })
                 $('#tarefas-lista').val('')
             })
