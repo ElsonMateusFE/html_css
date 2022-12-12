@@ -1,33 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revisão</title>
+    <style>
+        .button {
+            cursor: pointer;
+        }
+
+        .menu.is-open .itens {
+            display: block;
+        }
+
+        .itens {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <form>
-        <label for="numero-maximo">Número Maximo:</label>
-        <input type="number" id="numero-maximo">
-        <button>Sortear</button>
-        <span class="res"></span>
-    </form>
+    <div class="menu">
+        <span class="button">Menu</span>
+        <nav class="itens">
+            <li>Opção 01</li>
+            <li>Opção 02</li>
+        </nav>
+    </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function(){
-            document.addEventListener('submit', function(event){
-                event.preventDefault()
+        const menu = document.querySelectorAll('.button')
 
-                let numeroMaximo = document.getElementById('numero-maximo')
-                numeroMaximo = Number(numeroMaximo.value)
-
-                let numeroAleatorio = Math.random() * numeroMaximo
-                numeroAleatorio = Math.floor(numeroAleatorio + 1)
-
-                const res = document.querySelector('.res')
-                res.innerText = numeroAleatorio
+        for(let i = 0; i < menu.length; i++){
+            menu[i].addEventListener('click', function(event){
+                ///event.target.parentNode.classList.toggle('is-open')
+                if(event.target.parentNode.classList.contains('is-open')){
+                    event.target.parentNode.classList.remove('is-open')
+                }else{
+                    event.target.parentNode.classList.add('is-open')
+                }
             })
-        })
+        }
     </script>
 </body>
 </html>
