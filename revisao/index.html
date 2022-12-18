@@ -4,42 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revisão</title>
-    <style>
-        .button {
-            cursor: pointer;
-        }
-
-        .menu.is-open .itens {
-            display: block;
-        }
-
-        .itens {
-            display: none;
-        }
-    </style>
+    <title>Relógio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="menu">
-        <span class="button">Menu</span>
-        <nav class="itens">
-            <li>Opção 01</li>
-            <li>Opção 02</li>
-        </nav>
-    </div>
-    <script>
-        const menu = document.querySelectorAll('.button')
+    <div class="clock">
+        <div class="hand seconds"></div>
+        <div class="hand minutes"></div>
+        <div class="hand hours"></div>
 
-        for(let i = 0; i < menu.length; i++){
-            menu[i].addEventListener('click', function(event){
-                ///event.target.parentNode.classList.toggle('is-open')
-                if(event.target.parentNode.classList.contains('is-open')){
-                    event.target.parentNode.classList.remove('is-open')
-                }else{
-                    event.target.parentNode.classList.add('is-open')
-                }
-            })
-        }
-    </script>
+        <div class="number number-1"></div>
+
+        <div class="div number number-1">1</div>
+        <div class="div number number-2">2</div>
+        <div class="div number number-3">3</div>
+        <div class="div number number-4">4</div>
+        <div class="div number number-5">5</div>
+        <div class="div number number-6">6</div>
+        <div class="div number number-7">7</div>
+        <div class="div number number-8">8</div>
+        <div class="div number number-9">9</div>
+        <div class="div number number-10">10</div>
+        <div class="div number number-11">11</div>
+        <div class="div number number-12">12</div>
+    </div>
+    <!--.div.number.number-$*12{$}-->
+    <script src="script.js"></script>
 </body>
 </html>
