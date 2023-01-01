@@ -10,13 +10,13 @@
 </head>
 <body>
     <div class="container">
-        <form>
+        <form id="formulario-pedido">
             <div class="row mt-5">
                 <h4>Dados básicos</h4>
             </div>
             <div class="row mb-5">
                 <div class="col-3">
-                    <input type="text" class="form-control" placeholder="Nome">
+                    <input type="text" class="form-control" id="nome" placeholder="Nome">
                 </div>
                 <div class="col-5">
                     <input type="text" class="form-control" placeholder="Sobrenome">
@@ -48,36 +48,6 @@
     </div>
     <script src="jquery.js"></script>
     <script src="jquery.mask.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#cep').mask('00000-000')
-            
-            $('#btn-buscar-cep').click(function(){
-                const cep = $('#cep').val()
-                const endpoint = `https://viacep.com.br/ws/${cep}/json`
-                const btn = $(this)
-                const ajax = new XMLHttpRequest()
-                ajax.open('GET', endpoint)
-                ajax.send()
-
-                $(btn).find('i').addClass('d-none')
-                $(btn).find('span').removeClass('d-none')
-
-                fetch(endpoint).then(function(resposta){
-                    return resposta.json()
-                })
-                .then(function(response){
-                    const logradouro = response.logradouro
-                    const bairro = response.bairro
-                    const endereco = `${logradouro}, ${bairro}`
-
-                    $('#endereco').val(endereco)
-
-                    $(btn).find('i').removeClass('d-none')
-                    $(btn).find('span').addClass('d-none')
-                })
-            })
-        })
-    </script>
+    <script src="fetch.js"></script>
 </body>
 </html>
