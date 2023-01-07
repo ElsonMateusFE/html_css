@@ -216,7 +216,7 @@
             </ul>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="js/slick-1.8.1/slick/slick.min.js"></script>
     <script src="js/slick-1.8.1/slick/slick.js"></script>
     <script src="js/jQuery-Mask-Plugin-master/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
@@ -229,21 +229,21 @@
             })
 
             $('#carousel-imagem').slick({
-                autoplay: true
+                autoplay: true,
             })
 
-            $('#telefone').mask('(SS)000000000-000-00000-00',{
-                placeholder: 'Digite'
+            $('#telefone').mask('(00)0000-0000',{
+                placeholder: '(00)0000-0000'
             })
 
             $('form').validate({
                 rules:{
                     telefone:{
-                        required: true
+                        required: true,
                     }
                 },
                 messages:{
-                    telefone: 'Campo!!!!'
+                    telefone: 'Campo......'
                 }
             })
 

@@ -48,6 +48,38 @@
     </div>
     <script src="jquery.js"></script>
     <script src="jquery.mask.min.js"></script>
-    <script src="fetch.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btn-buscar-cep').click(function(){
+                const cep = $('#cep').val()
+                const endpoint = `https://viacep.com.br/ws/${cep}/json`
+                const ajax = new XMLHttpRequest()
+                const btn = $(this)
+
+                $(btn).find('i').addClass('d-none')
+                $(btn).find('span').removeClass('d-none')
+
+                fetch(endpoint).then(function(resposta){
+                    return resposta.json()
+                })
+                .then(function(json){
+                    const logradouro = json.logradouro
+                    const bairro = json.bairro
+                    const endereco = `${logradouro} - ${bairro}`
+
+                    $('#endereco').val(endereco)
+                })
+                .catch(function(error){
+                    alert('Erro...')
+                })
+                .finally(function(){
+                    setTimeout(function(){
+                        $(btn).find('i').removeClass('d-none')
+                        $(btn).find('span').addClass('d-none')
+                    }, 1000)
+                })
+            })
+        })
+    </script>
 </body>
 </html>
