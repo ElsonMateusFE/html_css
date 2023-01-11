@@ -50,10 +50,11 @@
     <script src="jquery.mask.min.js"></script>
     <script>
         $(document).ready(function(){
+            $('#cep').mask('00000-000')
+
             $('#btn-buscar-cep').click(function(){
                 const cep = $('#cep').val()
                 const endpoint = `https://viacep.com.br/ws/${cep}/json`
-                const ajax = new XMLHttpRequest()
                 const btn = $(this)
 
                 $(btn).find('i').addClass('d-none')
@@ -69,14 +70,14 @@
 
                     $('#endereco').val(endereco)
                 })
-                .catch(function(error){
-                    alert('Erro...')
+                .catch(function(erro){
+                    alert('Não foi possível encontrar seu endereço. Por favor insira novamente')
                 })
                 .finally(function(){
                     setTimeout(function(){
                         $(btn).find('i').removeClass('d-none')
                         $(btn).find('span').addClass('d-none')
-                    }, 1000)
+                    }, 1000);
                 })
             })
         })
