@@ -36,6 +36,7 @@ function Funcionario(nome, cargo, salario){
     Pessoa.call(this, nome)
 }
 
+
 function Estagiario(nome){
     Funcionario.call(this, nome, 'Estagiário', 2000)
 
