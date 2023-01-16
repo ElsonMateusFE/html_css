@@ -32,11 +32,15 @@ var dobroDosNumero = numeros.map(function (numeroAtual) {
   return numeroAtual * 2;
 });
 console.log(dobroDosNumero);
+
+//Find
 var paula = alunos2.find(function (item) {
   return item.nome === 'Paula'; // true false
 });
 
 console.log(paula);
+
+//Findindex
 var indiceDaPaula = alunos2.findIndex(function (item) {
   return item.nome === 'Paula'; // true false
 });
@@ -55,7 +59,7 @@ var todosAlunosDeFrontend = alunos2.every(function (item) {
 });
 console.log(todosAlunosDeFrontend);
 
-//Some
+//Some (existe pelo menos um)
 var existeAlgumAlunoDeBackend = alunos2.some(function (item) {
   return item.curso === 'Backend' && item.curso === 'Frontend';
 });
@@ -65,6 +69,13 @@ console.log(existeAlgumAlunoDeBackend);
 function filtraAlunosDeBackend(aluno) {
   return aluno.curso === 'Backend';
 }
+
+//Filter com Arrow Fucntion
+var filtraAlunosDeBackend2 = function filtraAlunosDeBackend2(aluno) {
+  return aluno.curso === 'Backend';
+};
+
+//const filtraAlunosDeBackend2 = (aluno, indice) => aluno.curso === 'Backend'
 
 //Filter atráves de função anonima
 var alunosDeBackend = alunos2.filter(function (item) {

@@ -36,12 +36,14 @@ const dobroDosNumero = numeros.map(function(numeroAtual){
 
 console.log(dobroDosNumero)
 
+//Find
 const paula = alunos2.find(function(item){
     return item.nome === 'Paula' // true false
 })
 
 console.log(paula)
 
+//Findindex
 const indiceDaPaula = alunos2.findIndex(function(item){
     return item.nome === 'Paula' // true false
 })
@@ -61,7 +63,7 @@ const todosAlunosDeFrontend = alunos2.every(function(item){
 
 console.log(todosAlunosDeFrontend)
 
-//Some
+//Some (existe pelo menos um)
 const existeAlgumAlunoDeBackend = alunos2.some(function(item){
     return item.curso === 'Backend' && item.curso === 'Frontend'
 })
@@ -72,6 +74,11 @@ console.log(existeAlgumAlunoDeBackend)
 function filtraAlunosDeBackend(aluno){
     return aluno.curso === 'Backend'
 }
+
+//Filter com Arrow Fucntion
+const filtraAlunosDeBackend2 = aluno => aluno.curso === 'Backend'
+
+//const filtraAlunosDeBackend2 = (aluno, indice) => aluno.curso === 'Backend'
 
 //Filter atráves de função anonima
 const alunosDeBackend = alunos2.filter(function(item){

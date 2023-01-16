@@ -70,14 +70,14 @@
 
                     $('#endereco').val(endereco)
                 })
-                .catch(function(erro){
-                    alert('Não foi possível encontrar seu endereço. Por favor insira novamente')
+                .catch(function(error){
+                    alert('Ocorreu um erro')
                 })
                 .finally(function(){
                     setTimeout(function(){
                         $(btn).find('i').removeClass('d-none')
                         $(btn).find('span').addClass('d-none')
-                    }, 1000);
+                    }, 1000)
                 })
             })
         })
