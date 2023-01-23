@@ -1,44 +1,27 @@
-function Pessoa(nome){
-    this.nome = nome
-}
-
-function Funcionario(nome, cargo, salario){
-    Pessoa.call(this, nome)
-    this.cargo = cargo
-    let _salario = salario
-
-    this.getSalario = function(){
-        return _salario
-    }
-
-    this.setSalario = function(valor){
-        if(typeof valor === 'number'){
-            _salario = valor
-        }
-    }
-
-    this.aumento = function(){
-        const novoSalario = _salario * 1.1
-
-        _salario = novoSalario
+class Pessoa {
+    constructor(nome, cargo){
+        this.nome = nome
+        this.cargo = cargo
     }
 }
 
-function Estagiario(nome){
-    Funcionario.call(this, nome, 'Estagiário', 2000)
+class Funcionario extends Pessoa {
+    #salario = 5000
 
-    this.aumento = function(){
-        const novoSalario = this.getSalario() * 1.05
-        this.setSalario(novoSalario)
+    constructor(){
+        super('Funcionario01', 'Frontend')
+    }
+
+    pagaImposto(){
+        this.#salario -= 200
+    }
+
+    exibirImpostoSemImposto(){
+        console.log(this.#salario)
     }
 }
 
-const charles = new Funcionario('Charles', 'Frontend', 5000)
-const nathan = new Estagiario('Nathan')
-
-charles.setSalario(8000)
-charles.aumento()
-console.log(charles.getSalario())
-
-nathan.aumento()
-console.log(nathan.getSalario())
+const funcionario = new Funcionario()
+console.log(funcionario)
+funcionario.pagaImposto()
+funcionario.exibirImpostoSemImposto()
