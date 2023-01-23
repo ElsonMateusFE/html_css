@@ -1,37 +1,36 @@
-const form = document.getElementById('form-deposito')
 const nomeBeneficiario = document.getElementById('nome-beneficiario')
-let validaForm = false
+const form = document.getElementById('form-deposito')
+let verificaForm = false
 
-form.addEventListener('submit', function(event){
-    event.preventDefault()
+form.addEventListener('submit', function(e){
+    e.preventDefault()
 
     const numeroConta = document.getElementById('numero-conta')
     const valorDeposito = document.getElementById('valor-deposito')
-    const mensagemSucesso = `${nomeBeneficiario.value}, ${numeroConta.value}, ${valorDeposito.value}`
+    const aviso = `${numeroConta.value} - ${valorDeposito.value} - ${nomeBeneficiario.value}`
 
-    validaForm = validaNome(nomeBeneficiario.value)
-    if(validaForm){
+    verificaForm = verificaNome(nomeBeneficiario.value)
+    if(verificaForm){
         document.querySelector('.success-message').style.display = 'block'
-        document.querySelector('.success-message').innerHTML = mensagemSucesso
+        document.querySelector('.success-message').innerHTML = aviso
     }else{
         document.querySelector('.error-message').style.display = 'block'
-        nomeBeneficiario.style.border = '2px solid red'
-    }
+    }    
 })
 
 nomeBeneficiario.addEventListener('keyup', function(){
-    validaForm = validaNome(nomeBeneficiario.value)
-    if(!validaForm){
-        document.querySelector('.error-message').style.display = 'block'
+    verificaForm = verificaNome(nomeBeneficiario.value)
+    if(!verificaForm){
         nomeBeneficiario.classList.add('error')
+        document.querySelector('.error-message').style.display = 'block'
     }else{
-        document.querySelector('.error-message').style.display = 'none'
         nomeBeneficiario.classList.remove('error')
+        document.querySelector('.error-message').style.display = 'none'
     }
 })
 
-function validaNome(nomeCompleto){
-    const nomeArray = nomeCompleto.split(' ')
+function verificaNome(nomeCompleto){
+    const nome = nomeCompleto.split(' ')
 
-    return nomeArray.length >= 2
+    return nome.length >= 2
 }
