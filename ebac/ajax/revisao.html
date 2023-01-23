@@ -50,28 +50,26 @@
     <script src="jquery.mask.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('#cep').mask('00000-000')
-            
             $('#btn-buscar-cep').click(function(){
                 const cep = $('#cep').val()
-                const enpoint = `https://viacep.com.br/ws/${cep}/json`
+                const endpoint = `https://viacep.com.br/ws/${cep}/json`
                 const btn = $(this)
 
                 $(btn).find('i').addClass('d-none')
                 $(btn).find('span').removeClass('d-none')
 
-                fetch(enpoint).then(function(resposta){
+                fetch(endpoint).then(function(resposta){
                     return resposta.json()
                 })
                 .then(function(json){
                     const logradouro = json.logradouro
                     const bairro = json.bairro
-                    const endereco = `${logradouro}, ${bairro}`
+                    const endereco = `${logradouro} - ${bairro}`
 
                     $('#endereco').val(endereco)
                 })
-                .catch(function(error){
-                    alert('Não foi possível encontrar seu endereço')
+                .catch(function(e){
+                    alert('Erro')
                 })
                 .finally(function(){
                     setTimeout(function(){
@@ -80,11 +78,12 @@
                     }, 1000)
                 })
             })
-            $('#formulario-pedido').submit(function(evento){
-                evento.preventDefault()
 
-                if($('#nome').val() == ''){
-                    throw Error('Nome não foi adicionado')
+            $('#formulario-pedido').submit(function(e){
+                e.preventDefault()
+
+                if($('#nome').val() === ''){
+                    throw new Error('Erro na adição do nome')
                 }
             })
         })
