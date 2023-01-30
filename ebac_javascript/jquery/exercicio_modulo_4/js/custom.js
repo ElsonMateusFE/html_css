@@ -48,15 +48,4 @@ $(document).ready(function(){
         alert('Produto esgotado');
 
      })
-     
-     
-     
-     
-
-
-
-
-
-
-
 })

@@ -35,7 +35,6 @@ document.getElementById('formulario-01').addEventListener('submit', function(e){
     let notas = []
 
     for(let key of dados.keys()){
-
         //let numero = Number(dados.get(key))
         let numero = dados.get(key).match(/\d*/) ? Number(dados.get(key)) : 0
 
