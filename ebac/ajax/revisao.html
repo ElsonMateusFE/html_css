@@ -50,6 +50,8 @@
     <script src="jquery.mask.min.js"></script>
     <script>
         $(document).ready(function(){
+            $('#cep').mask('00000-000')
+
             $('#btn-buscar-cep').click(function(){
                 const cep = $('#cep').val()
                 const endpoint = `https://viacep.com.br/ws/${cep}/json`
@@ -58,8 +60,8 @@
                 $(btn).find('i').addClass('d-none')
                 $(btn).find('span').removeClass('d-none')
 
-                fetch(endpoint).then(function(resposta){
-                    return resposta.json()
+                fetch(endpoint).then(function(res){
+                    return res.json()
                 })
                 .then(function(json){
                     const logradouro = json.logradouro
@@ -69,7 +71,7 @@
                     $('#endereco').val(endereco)
                 })
                 .catch(function(e){
-                    alert('Erro!!')
+                    alert('Erro')
                 })
                 .finally(function(){
                     setTimeout(function(){
@@ -83,7 +85,7 @@
                 e.preventDefault()
 
                 if($('#nome').val() === ''){
-                    throw new Error('Erro no sistema!!!')
+                    throw new Error('Erro no sistema')
                 }
             })
         })
