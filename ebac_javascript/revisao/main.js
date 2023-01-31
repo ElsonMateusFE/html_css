@@ -1,84 +1,96 @@
-function somaEMedia(notas){
-    let soma = 0
+function somaMedia(notas){
+    let nota = 0
 
     for(let i = 0; i < notas.length; i++){
-        soma += notas[i]
+        nota += notas[i]
     }
 
-    return soma / notas.length
+    return nota / notas.length
 }
 
-function verificacao(notas){
-    const media = somaEMedia(notas)
+function aprovadoReprovado(notas){
+    const media = somaMedia(notas)
 
     const verificacao = media >= 7 ? 'Aprovado' : 'Reprovado'
 
-    return `${media} - ${verificacao}`
+    return `Média: ${media} - Resuldado: ${verificacao}`
 }
 
-const form = document.querySelector('#formulario-01')
+const form1 = document.querySelector('#formulario-01')
 
-form.addEventListener('submit', function(e){
+form1.addEventListener('submit', function(e){
     e.preventDefault()
 
-    if(this.getAttribute('class').get('erro')){
+    if(this.getAttribute('class').match(/error/)){
         return false
     }
     
     const dados = new FormData(this)
 
-    let notas = []
+    const notas = []
 
     for(let nota of dados.values()){
-        const condicao = nota.match(/\d*/) ? Number(nota) : 0
+
+        const condicao = nota.match(/[0-9]/) ? Number(nota) : 0
 
         if(!isNaN(condicao)){
             notas.push(condicao)
         }
     }
 
-    document.querySelector('#resuldado').innerHTML = verificacao(notas)
+    console.log(notas)
+
+    document.querySelector('#resuldado').innerHTML = aprovadoReprovado(notas)
 })
 
-function verificacaoDeCampoObrigatorio(campo){
-    campo.addEventListener('blur', function(e){
+function verificaCampo(valor){
+    valor.addEventListener('focusout', function(e){
         e.preventDefault()
     
         if(this.value === ''){
             this.classList.add('erro')
-            document.querySelector('.mensagem').innerHTML = 'Verifique o preenchimento dos campos em vermelho'
+            document.querySelector('.mensagem').innerHTML = 'verifique o preenchimento dos campos em vermelho'
 
             return false
         }else{
             this.classList.remove('erro')
+            this.parentNode.classList('erro')
             document.querySelector('.mensagem').innerHTML = ''
         }
     })
 }
 
-function verificacaoDeCampoNumerico(campo){
-    campo.addEventListener('blur', function(e){
+function verificaCampoNumerico(valor){
+    valor.addEventListener('focusout', function(e){
         e.preventDefault()
+
+        const numero = this.value.match(/^[0-9]{5}+[-][0-9]{3}$/)
+        const condicao = this.value !== '' && this.value.match(/[0-9]/) && this.value >= 0 && this.value <= 10
     
-        if(this.value !== '' && this.value.match(/[0-9]*/) && this.value >= 0 && this.value <= 10){
+        if(condicao){
             this.classList.remove('erro')
             document.querySelector('.mensagem').innerHTML = ''
         }else{
             this.classList.add('erro')
-            document.querySelector('.mensagem').innerHTML = 'Verifique o preenchimento dos campos em destaque'
-            this.parentNode.classList.add('erro')
+            document.querySelector('.mensagem').innerHTML = 'verifique o preenchimento dos campos em vermelho'
+
             return false
         }
     })
 }
 
-const camposObrigatorios = document.querySelectorAll('input.obrigatoria')
-const camposNumericos = document.querySelectorAll('input.numero')
+const campoObrigatorio = document.querySelectorAll('input.obrigatoria')
+const campoObrigatorioNumerico = document.querySelectorAll('input.numero')
+const campoEmail = document.querySelector('input.email')
 
-for(let campo of camposObrigatorios){
-    verificacaoDeCampoObrigatorio(campo)
+for(let campo of campoObrigatorio){
+    verificaCampo(campo)
 }
 
-for(let campo of camposNumericos){
-    verificacaoDeCampoNumerico(campo)
+for(let campo of campoObrigatorioNumerico){
+    verificaCampoNumerico(campo)
+}
+
+for(let campo of campoEmail){
+
 }
