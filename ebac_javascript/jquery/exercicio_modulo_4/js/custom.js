@@ -48,4 +48,75 @@ $(document).ready(function(){
         alert('Produto esgotado');
 
      })
+
+     /* Callback */
+    /*
+     $('.featured-item:nth(1)').hide(2000, function(){
+      // este é o callback
+      alert(`${$(this).find('h4').text()} esgotado`)
+     })
+     */
+     $('.featured-item:nth(1)')
+      .hide(2000, function(){
+         // este é o callback
+         console.log(`${$(this).find('h4').text()} esgotado`)
+     })
+     .show(2000, function(){
+         console.log(`${$(this).find('h4').text()} em estoque`)
+     })
+
+     /* Animação */
+     const duracao = 1000
+
+     $('.featured-item:nth(0)')
+      .hide(duracao)
+      .show(duracao)
+      .fadeIn(duracao)
+      .fadeOut(duracao)
+      .toggle(duracao)
+      .toggle(duracao)
+
+   $('#form-submit').on('click', function(e){
+      e.preventDefault()
+
+      if($('#email').val() != ''){
+         $('#email').animate({
+            opacity: 'toggle',
+            top: '-50'
+         }, duracao, function(){
+            console.log($(this).val())
+         })
+      }
+   })
+
+   /* Ouvinte de eventos .nav-modal-open
+   $('.nav-modal-open').on('click', function(e){
+      e.preventDefault()
+
+      //attr > busca atributo
+      let elem = $(this).attr('rel')
+
+      $('.modal-body').html($(`#${elem}`).html())
+      //$('.modal-body').html($('#'+elem).html())
+      
+      $('.modal-header h5.modal-title').html($(this).text())
+
+      let myModal = new bootstrap.Modal('#modelId')
+
+      myModal.show()
+   })
+   */
+  $('.nav-link').click(function(e){
+      e.preventDefault()
+
+      $('.modal-title').html($(this).text())
+
+      const form = $(this).attr('rel')
+
+      $('.modal-body').html($(`#${form}`).html())
+
+      const modal = new bootstrap.Modal('#modelId')
+
+      modal.show()
+  })
 })
