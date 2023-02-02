@@ -50,8 +50,6 @@
     <script src="jquery.mask.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('#cep').mask('00000-000')
-
             $('#btn-buscar-cep').click(function(){
                 const cep = $('#cep').val()
                 const endpoint = `https://viacep.com.br/ws/${cep}/json`
@@ -79,14 +77,6 @@
                         $(btn).find('span').addClass('d-none')
                     }, 1000)
                 })
-            })
-
-            $('#formulario-pedido').submit(function(e){
-                e.preventDefault()
-
-                if($('#nome').val() === ''){
-                    throw new Error('Erro no sistema')
-                }
             })
         })
     </script>

@@ -24,6 +24,7 @@ $(document).ready(function(){
         })
     })
 
+    /*
     $('.featured-item').hover(
         function(){
             console.log($(this).find('h4').text())
@@ -32,7 +33,8 @@ $(document).ready(function(){
             console.log($(this).find('h4').text() + '-' + $(this.find('h6').text()))
         })
 
-        //blur/click
+    */
+
     $('.featured-item a').on('click', function(e){
 
         e.preventDefault()
