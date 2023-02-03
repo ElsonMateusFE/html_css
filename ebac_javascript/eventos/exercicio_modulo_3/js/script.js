@@ -65,7 +65,6 @@ if(formulario1)
             if(!isNaN(numero)) {
                 notas.push(numero);
             }
-
         }
 
         console.log(notas);
@@ -73,7 +72,6 @@ if(formulario1)
         texto = aprovacao(notas)
 
         document.getElementById('resultado').innerHTML = texto;
-
     });
 
 
@@ -93,9 +91,7 @@ function validaCampo(elemento){
             this.classList.remove('erro');
             this.parentNode.classList.remove('erro');
         }
-
     });
-
 }
 
 function validaCampoNumerico(elemento){
@@ -164,9 +160,7 @@ function validaUf(elemento){
             this.parentNode.classList.add('erro');
             return false;
         }
-
     });
-
 }
 
 let camposObrigatorios = document.querySelectorAll('input.obrigatorio');

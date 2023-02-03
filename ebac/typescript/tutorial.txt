@@ -1,0 +1,6 @@
+npm i --global typescript
+
+npx tsc --init
+
+//Para executar
+npx tsc

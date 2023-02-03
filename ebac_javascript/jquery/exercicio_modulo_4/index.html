@@ -263,7 +263,7 @@
                     Digite um e-mail válido
                 </small>
             </div>
-<!--
+            
             <div class="mb-3">
                 <label for="date" class="form-label">Data</label>
                 <input type="text" name="date" id="date" class="form-control" placeholder="Digite seu e-mail" aria-describedby="helpDate">
@@ -271,7 +271,8 @@
                     Digite uma data válida
                 </small>
             </div>
-
+            
+            <!--
             <div class="mb-3">
                 <label for="time" class="form-label">Hora</label>
                 <input type="text" name="time" id="time" class="form-control" placeholder="Digite a hora" aria-describedby="helpHora">
@@ -303,9 +304,8 @@
                     Digite um celular válido
                 </small>
             </div>
--->
+        -->
             <button type="submit" class="btn btn-primary">Enviar</button>
-
 
         </form>
 
@@ -326,7 +326,26 @@
     <script src="./vendor/jquery-mask/jquery.mask.min.js"></script>
     <script src="./vendor/jquery-ui/jquery-ui.min.js"></script>
 
-    <!-- Scripts Customizados -->
+    <!-- Scripts Customizados
     <script src="./js/custom.js"></script>
+    -->
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel();
+
+            $('#subscribe').click(function(e){
+                e.preventDefault()
+
+                if($('#email').val() !== ''){
+                    $('#email').animate({
+                        opacity: 'hide',
+                        top: '-50'
+                    }, 2000, function(){
+                        console.log($(this).val())
+                    })
+                }
+            })
+        })
+    </script>
 </body>
 </html>

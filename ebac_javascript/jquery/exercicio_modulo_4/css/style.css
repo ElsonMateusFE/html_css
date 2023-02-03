@@ -750,3 +750,7 @@ a {
 .invalid {
 	border-color: red;
 }
+
+.text-muted {
+	display: none;
+}
