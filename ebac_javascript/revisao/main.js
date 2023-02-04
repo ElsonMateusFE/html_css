@@ -1,6 +1,5 @@
-function validaCampoObrigatorio(valor){
-    valor.addEventListener('blur', function(e){
-        e.preventDefault()
+function validacaoDeCampo(valor){
+    valor.addEventListener('blur', function(){
 
         if(this.value === ''){
             this.classList.add('erro')
@@ -10,26 +9,10 @@ function validaCampoObrigatorio(valor){
     })
 }
 
-function validaCampoCep(valor){
-    valor.addEventListener('blur', function(e){
-        e.preventDefault()
+function validacaoDeEmal(valor){
+    valor.addEventListener('blur', function(){
 
-        const condicao = /^[0-9]{5}[-][0-9]{3}$/
-
-        if(this.value.match(condicao)){
-            this.classList.remove('erro')
-        }else{
-            this.classList.add('erro')
-        }
-    })
-}
-
-function validaCampoEmail(valor){
-    valor.addEventListener('blur', function(e){
-        e.preventDefault()
-
-        const condicao = /^[a-z0-9]+@[a-z0-9]+.[a-z]*$/i
-
+        const condicao = /^[a-z0-9]+@[a-z0-9]+.[a-z]$/i
         if(this.value.match(condicao)){
             this.classList.remove('erro')
         }else{
@@ -39,17 +22,12 @@ function validaCampoEmail(valor){
 }
 
 const campoObrigatorio = document.querySelectorAll('input.obrigatoria')
-const campoCep = document.querySelectorAll('input.cep')
 const campoEmail = document.querySelectorAll('input.email')
 
 for(let campo of campoObrigatorio){
-    validaCampoObrigatorio(campo)
-}
-
-for(let campo of campoCep){
-    validaCampoCep(campo)
+    validacaoDeCampo(campo)
 }
 
 for(let campo of campoEmail){
-    validaCampoEmail(campo)
+    validacaoDeEmal(campo)
 }

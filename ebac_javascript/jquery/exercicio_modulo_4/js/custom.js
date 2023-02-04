@@ -10,7 +10,7 @@ $(document).ready(function(){
     
    let destaques = $('#featured') // id
 
-   console.log(titulos.first());
+   //console.log(titulos.first());
 
    // Configuração de produtos
 
@@ -117,7 +117,6 @@ $(document).ready(function(){
 
          elem.addClass('invalid')
 
-         // close, busca o elemnto mais proximo com id '.text-muted'
          elem.parent().find('.text-muted').show()
 
          return false
@@ -183,23 +182,25 @@ $(document).ready(function(){
 */
    $('.nav-modal-open').click(function(){
 
-      const destino = $(this).attr('rel')
+      const form = $(this).attr('rel')
+
+      $('.modal-body').html($(`#${form}`).html())
 
       $('.modal-title').html($(this).text())
+      
+      const modalVisibiluty = new bootstrap.Modal('#modelId')
 
-      $('.modal-body').html($(`#${destino}`).html())
-
-      const modalVisibility = new bootstrap.Modal('#modelId')
-
-      modalVisibility.show()
+      modalVisibiluty.show()
    })
 
    function validate(valor){
       if(valor.val() === ''){
-         console.log(`Campo obrigatório ${valor.attr('name')}`)
+         console.log(`Campo ${$(valor).attr('name')} é obrigatorio`)
          valor.addClass('invalid')
+         valor.parent().find('.text-muted').show()
       }else{
-         valor.removeClass('invalid')
+         valor.removeClass('inalid')
+         valor.parent().find('.text-muted').hide()
       }
    }
 
@@ -208,18 +209,12 @@ $(document).ready(function(){
 
       const nome = $('#nome')
       const email = $('#email')
-      const date = $('#date')
 
       validate(nome)
       validate(email)
-      validate(date)
 
-      const verificacao = nome.hasClass('invalid') && email.hasClass('invalid') && date.hasClass('invalid')
-      if(verificacao){
-         console.log('verificar campos obrigatórios')
-         return false
-      }else{
-         $(this).submit()
+      if(nome.hasClass('invalid') && email.hasClass('invalid')){
+         console.log('Erro')
       }
    })
 
@@ -231,7 +226,7 @@ $(document).ready(function(){
       validate($(this))
    })
 
-   $('body').on('blur', '#date', function(){
+   $('body').on('focus', '#date', function(){
       validate($(this))
       $(this).mask('00/00/0000')
    })
