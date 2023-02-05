@@ -15,3 +15,6 @@
 // ([0-9]{4})[-]([0-9]{2})[-]([0-9]{2})
 //  Grupo 1      Grupo 2      Grupo 3
 // $3/$2/$1
+
+//nome@gamil.com
+//const condicao = /^[a-z0-9]+@[a-z]+.[a-z]?/i

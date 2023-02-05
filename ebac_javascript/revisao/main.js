@@ -1,6 +1,21 @@
-function validacaoDeCampo(valor){
-    valor.addEventListener('blur', function(){
+const campoNome = document.querySelectorAll('input.nome')
+const campoCep = document.querySelectorAll('input.cep')
+const campoEmail = document.querySelectorAll('input.email')
 
+for(let campo of campoNome){
+    validacao(campo)
+}
+
+for(let campo of campoCep){
+    validacaoDeCep(campo)
+}
+
+for(let campo of campoEmail){
+    validacaoDeEmail(campo)
+}
+
+function validacao(valor){
+    valor.addEventListener('blur', function(){
         if(this.value === ''){
             this.classList.add('erro')
         }else{
@@ -9,11 +24,10 @@ function validacaoDeCampo(valor){
     })
 }
 
-function validacaoDeEmal(valor){
+function validacaoDeCep(valor){
     valor.addEventListener('blur', function(){
-
-        const condicao = /^[a-z0-9]+@[a-z0-9]+.[a-z]$/i
-        if(this.value.match(condicao)){
+        const condicao = /^([0-9]{5})[-]([0-9]{3})$/
+        if(this.value !== '' && this.value.match(condicao)){
             this.classList.remove('erro')
         }else{
             this.classList.add('erro')
@@ -21,13 +35,14 @@ function validacaoDeEmal(valor){
     })
 }
 
-const campoObrigatorio = document.querySelectorAll('input.obrigatoria')
-const campoEmail = document.querySelectorAll('input.email')
-
-for(let campo of campoObrigatorio){
-    validacaoDeCampo(campo)
-}
-
-for(let campo of campoEmail){
-    validacaoDeEmal(campo)
+function validacaoDeEmail(valor){
+    valor.addEventListener('blur', function(){
+        //nome@gamil.com
+        const condicao = /^[a-z0-9]+@[a-z]+.[a-z]?/i
+        if(this.value !== '' && this.value.match(condicao)){
+            this.classList.remove('erro')
+        }else{
+            this.classList.add('erro')
+        }
+    })
 }
