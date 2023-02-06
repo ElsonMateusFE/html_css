@@ -1,34 +1,21 @@
-// instancia jquery e evita conflitos
-// jQuery( function($){
 $(document).ready(function(){
 
    $('.owl-carousel').owlCarousel();
 
    let titulos = $('h4') // tag
-   
-   let itens = $('.featured-item') // class
-    
-   let destaques = $('#featured') // id
 
    //console.log(titulos.first());
 
-   // Configuração de produtos
+   $('.featured-item a').addClass('btn btn-primary stretch-link w-100');
 
-   $('.featured-item a').addClass('btn btn-dark stretch-link');
+   $('.featured-item:first h4').append('<span class="badge bg-secondary m-1">Novo</span>')
 
-   $('.featured-item:first h4').append('<span class="badge bg-secondary">Novo</span>')
+   /*
    // $('.featured-item:first h4').start('<span class="badge bg-secondary">Novo</span>')
    // $('.featured-item:first h4').html('<span class="badge bg-secondary">Novo</span>')
-   // $('.featured-item:first h4').addClass('active')
-   // $('.featured-item:first h4').removeClass('active')
-   // $('.featured-item:first h4').toggleClass('active')
-   // $('.featured-item:first h4').hide()
-   // $('.featured-item:first h4').show()
    // $('.featured-item:first h4').fadeIn(2000)
    // $('.featured-item:first h4').fadeOut()
-   //  $('.featured-item:first h4').css('color', '#f00')
      
-   /*
    $('.featured-item h4').dblclick( function(){
 
       $(this).css({
@@ -38,70 +25,41 @@ $(document).ready(function(){
       });
 
    });
-   */
 
-   /*
-   * Manipulação de eventos
-   */
-   /*
-   $('.featured-item a').on('blur', function(event){
-
-      event.preventDefault();
-
-      alert('Produto esgotado');
-
-   })
-   */
-
-   /* Callback */
-   /*
+   //Callback
    $('.featured-item:nth(1)').hide(2000, function(){
       // este é o callback
       alert(`${$(this).find('h4').text()} esgotado`)
    })
-   */
    $('.featured-item:nth(1)')
-      .hide(2000, function(){
+   .hide(2000, function(){
       // este é o callback
       console.log(`${$(this).find('h4').text()} esgotado`)
    })
-      .show(2000, function(){
-         console.log(`${$(this).find('h4').text()} em estoque`)
-      })
+   .show(2000, function(){
+      console.log(`${$(this).find('h4').text()} em estoque`)
+   })
+   */
 
-   /* Animação */
-   const duracao = 1000
-
-   $('.featured-item:nth(0)')
-      .hide(duracao)
-      .show(duracao)
-      .fadeIn(duracao)
-      .fadeOut(duracao)
-      .toggle(duracao)
-      .toggle(duracao)
-
-   $('#form-submit').on('click', function(e){
+   $('#subscribe').on('click', function(e){
       e.preventDefault()
 
-      if($('#email').val() != ''){
+      if($('#email').val() !== ''){
          $('#email').animate({
-            opacity: 'toggle',
-            top: '-50'
-         }, duracao, function(){
+            opacity: 0,
+            top: -50
+         }, 2000, function(){
             console.log($(this).val())
          })
       }
    })
 
-   /* Ouvinte de eventos .nav-modal-open
    $('.nav-modal-open').on('click', function(e){
       e.preventDefault()
 
-      //attr > busca atributo
       let elem = $(this).attr('rel')
 
       $('.modal-body').html($(`#${elem}`).html())
-      //$('.modal-body').html($('#'+elem).html())
       
       $('.modal-header h5.modal-title').html($(this).text())
 
@@ -109,8 +67,7 @@ $(document).ready(function(){
 
       myModal.show()
    })
-   */
-/*
+
    function validate(elem){
       if(elem.val() == ''){
          console.log(`o campo de ${elem.attr('name')} é obrigatório`)
@@ -125,9 +82,6 @@ $(document).ready(function(){
          elem.removeClass('invalid')
       }
    }
-
-  //blur > qunado o elemento perder o foco
-  //focus > quando o elemento está em foco
 
    $('body').submit('modal-body .form', function(e){
       e.preventDefault()
@@ -146,78 +100,6 @@ $(document).ready(function(){
       }
   })
 
-
-   $('body').on('blur', '#nome', function(){
-      validate($(this))
-   })
-
-   $('body').on('blur', '#email', function(){
-      validate($(this))
-   })
-
-   $('body').on('blur', '#date', function(){
-      validate($(this))
-      $('#date').mask('00/00/0000')
-   })
-
-   $('body').on('blur', '#time', function(){
-      validate($(this))
-      $('#time').mask('00:00:00')
-   })
-
-   $('body').on('blur', '#cep', function(){
-      validate($(this))
-      $(this).mask('00000-000')
-   })
-
-   $('body').on('blur', '#phone', function(){
-      validate($(this))
-      $('#phone').mask('00000-0000')
-   })
-
-   $('body').on('blur', '#cpf', function(){
-      validate($(this))
-      $('#cpf').mask('000.000.000-00')
-   })
-*/
-   $('.nav-modal-open').click(function(){
-
-      const form = $(this).attr('rel')
-
-      $('.modal-body').html($(`#${form}`).html())
-
-      $('.modal-title').html($(this).text())
-      
-      const modalVisibiluty = new bootstrap.Modal('#modelId')
-
-      modalVisibiluty.show()
-   })
-
-   function validate(valor){
-      if(valor.val() === ''){
-         console.log(`Campo ${$(valor).attr('name')} é obrigatorio`)
-         valor.addClass('invalid')
-         valor.parent().find('.text-muted').show()
-      }else{
-         valor.removeClass('inalid')
-         valor.parent().find('.text-muted').hide()
-      }
-   }
-
-   $('body').submit('modal-body.form', function(e){
-      e.preventDefault()
-
-      const nome = $('#nome')
-      const email = $('#email')
-
-      validate(nome)
-      validate(email)
-
-      if(nome.hasClass('invalid') && email.hasClass('invalid')){
-         console.log('Erro')
-      }
-   })
-
    $('body').on('blur', '#nome', function(){
       validate($(this))
    })
@@ -228,6 +110,27 @@ $(document).ready(function(){
 
    $('body').on('focus', '#date', function(){
       validate($(this))
-      $(this).mask('00/00/0000')
+      $('#date').mask('00/00/0000')
    })
+
+   $('body').on('focus', '#time', function(){
+      validate($(this))
+      $('#time').mask('00:00:00')
+   })
+
+   $('body').on('focus', '#cep', function(){
+      validate($(this))
+      $(this).mask('00000-000')
+   })
+
+   $('body').on('focus', '#phone', function(){
+      validate($(this))
+      $('#phone').mask('00000-0000')
+   })
+
+   $('body').on('focus', '#cpf', function(){
+      validate($(this))
+      $('#cpf').mask('000.000.000-00')
+   })
+
 })

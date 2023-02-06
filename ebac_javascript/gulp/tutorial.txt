@@ -1,0 +1,6 @@
+npm i --save-dev gulp-concat gulp-cssmin
+
+forçar
+npm cachge clean --force
+
+npm i --save-dev gulp-rename
