@@ -25,6 +25,13 @@ pessoa['sobrenome'] = undefined
 //Congela os atributos dentro das constantes
 Object.freeze(pessoa)
 
+// Congela apenas uma propriedade
+Object.defineProperties(pessoa, 'nome', {
+    enumerable: true,
+    whitable: false,
+    value: 'Charles'
+})
+
 pessoa.nome = 'Charles'
 
 if(pessoa['sobrenome']){

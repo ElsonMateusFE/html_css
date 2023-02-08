@@ -4,3 +4,5 @@ npx tsc --init
 
 //Para executar
 npx tsc
+
+npx tsc --watch
