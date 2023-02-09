@@ -28,7 +28,7 @@ Object.freeze(pessoa)
 // Congela apenas uma propriedade
 Object.defineProperties(pessoa, 'nome', {
     enumerable: true,
-    whitable: false,
+    writable: false,
     value: 'Charles'
 })
 
