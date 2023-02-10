@@ -1,4 +1,4 @@
-function validaNome(valor){
+function validateNome(valor){
     valor.addEventListener('blur', function(){
         if(this.value === ''){
             this.classList.add('erro')
@@ -8,8 +8,14 @@ function validaNome(valor){
     })
 }
 
-const campoNomes = document.querySelectorAll('input.nome')
+function nomeCompleto(nomeCompleto){
+    const nomeArray = nomeCompleto.split(' ')
 
-for(let campo of campoNomes){
-    validaNome(campo)
+    return nomeArray.length >= 2
+}
+
+const campoNome = document.querySelectorAll('input.nome')
+
+for(let campo of campoNome){
+    nomeCompleto(campo)
 }
