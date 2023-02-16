@@ -26,7 +26,7 @@ pessoa['sobrenome'] = undefined
 Object.freeze(pessoa)
 
 // Congela apenas uma propriedade
-Object.defineProperties(pessoa, 'nome', {
+Object.defineProperty(pessoa, 'nome', {
     enumerable: true,
     writable: false,
     value: 'Charles'

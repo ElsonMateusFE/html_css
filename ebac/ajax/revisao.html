@@ -49,45 +49,6 @@
     </div>
     <script src="jquery.js"></script>
     <script src="jquery.mask.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#btn-buscar-cep').click(function(){
-                const cep = $('#cep').val()
-                const endpoint = `https://viacep.com.br/ws/${cep}/json`
-                const btn = $(this)
-
-                btn.find('i').addClass('d-none')
-                btn.find('span').removeClass('d-none')
-
-                fetch(endpoint).then(function(res){
-                    return res.json()
-                })
-                .then(function(j){
-                    const logradouro = j.logradouro
-                    const bairro = j.bairro
-                    const endereco = `${logradouro} - ${bairro}`
-
-                    $('#endereco').val(endereco)
-
-                })
-                .catch(function(e){
-                    alert('Erro')
-                })
-                .finally(function(){
-                    setTimeout(function(){
-                        btn.find('i').removeClass('d-none')
-                        btn.find('span').addClass('d-none')
-                    }, 1000)
-                })
-            })
-            $('#formulario-pedido').submit(function(e){
-                e.preventDefault()
-
-                if($('#nome').val() === ''){
-                    throw new Error('Erro no sistema')
-                }
-            })
-        })
-    </script>
+    <script src="fetch.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-function validateNome(valor){
-    valor.addEventListener('blur', function(){
+function validaCampo(evento){
+    evento.addEventListener('blur', function(){
         if(this.value === ''){
             this.classList.add('erro')
         }else{
@@ -8,14 +8,25 @@ function validateNome(valor){
     })
 }
 
-function nomeCompleto(nomeCompleto){
-    const nomeArray = nomeCompleto.split(' ')
-
-    return nomeArray.length >= 2
+function validaCampoCep(evento){
+    evento.addEventListener('blur', function(){
+        const condicao = /^[0-9]{5}-[0-9]{3}$/
+        if(this.value === '' && this.match(condicao)){
+            this.classList.add('erro')
+        }else{
+            this.classList.remove('erro')
+        }
+    })
 }
 
 const campoNome = document.querySelectorAll('input.nome')
 
 for(let campo of campoNome){
-    nomeCompleto(campo)
+    validaCampo(campo)
+}
+
+const campoCep = document.querySelectorAll('input.cep')
+
+for(let campo of campoCep){
+    validaCampoCep(campo)
 }
