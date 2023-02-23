@@ -326,7 +326,55 @@
     <script src="./vendor/jquery-mask/jquery.mask.min.js"></script>
     <script src="./vendor/jquery-ui/jquery-ui.min.js"></script>
     <script src="vendor/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Scripts Customizados -->
+    <!-- Scripts Customizados
     <script src="./js/custom.js"></script>
+    -->
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel();
+
+            $('.nav-modal-open').click(function(){
+                new bootstrap.Modal('#modelId').show()
+
+                $('.modal-title').html($(this).text())
+
+                const form = $(this).attr('rel')
+                $('.modal-body').html($(`#${form}`).html())
+            })
+
+            function validate(valor){
+                if(valor.val() === ''){
+                    console.log(`Campo ${valor.attr('name')} é obrigatorio`)
+                    valor.addClass('invalid')
+                    valor.parent().find('.text-muted').show()
+                }else{
+                    valor.removeClass('invalid')
+                    valor.parent().find('.text-muted').hide()
+                }
+            }
+
+            $('body').submit('.modal-body', function(e){
+                e.preventDefault()
+
+                const nome = $('#nome')
+                const email = $('#email')
+
+                validate(nome)
+                validate(email)
+
+                if(nome.hasClass('invalid') && email.hasClass('invalid')){
+                    console.log(`Campos obrigatorios`)
+                }
+            })
+
+            $('body').on('blur', '#nome', function(){
+                validate($(this))
+            })
+
+            $('body').on('blur', '#email', function(){
+                validate($(this))
+            })
+        })
+    </script>
 </body>
 </html>
