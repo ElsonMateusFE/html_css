@@ -55,6 +55,10 @@ const Formulario = () => {
 
     return (
         <form>
+            <ul>
+                {[1, 2, 3, 4, 5].map(item => <li key={item}>{item}</li>)}
+            </ul>
+
             <input type="text" placeholder="Seu nome" onChange={alteraNome} />
             <input type="number" placeholder="Nota matéria A" onChange={({ target }) => setMateriaA(Number(target.value))} />
             <input type="number" placeholder="Nota matéria B" onChange={evento => setMateriaB(Number(evento.target.value))} />
@@ -68,6 +72,15 @@ const Formulario = () => {
 {materiaA}
 {materiaB}
 {materiaC}
+
+<ul>
+                {[1, 2, 3, 4, 5].map(item => (
+                    <>
+                    <b>{item}</b> 
+                    <li>{item}</li>
+                    </>
+                ))}
+            </ul>
 */
 
 export default Formulario

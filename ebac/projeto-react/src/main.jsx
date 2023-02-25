@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 
+import './global.css'
+
 //import { PI as numeroPI, GTM_BRASIL } from './teste'
 //import nomes from './nomes'
 //import reactNomes from './nomes'

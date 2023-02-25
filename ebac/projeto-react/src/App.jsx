@@ -4,9 +4,11 @@ import { useState } from "react"
 
 import Perfil from "./components/Perfil"
 import Formulario from "./components/Formulario"
+import ReposList from "./components/RepoosList"
 
 function App() {
   const [formularioEstaVisivel, setFormularioEstaVisivel] = useState(true)
+  const [nomeUsuario, setNomeUsuario] = useState('')
   //const nome = 'Charles'
 
   //function retornaNome(){
@@ -21,13 +23,24 @@ function App() {
 
   return (
     <>
-     <Perfil nome="Elson Mateus" endereco="https://github.com/ElsonMateusFE.png"/>
+    <input type="text" onBlur={(e) => setNomeUsuario(e.target.value)}/>
+
+     {nomeUsuario.length > 4 && (
+       <>
+          <Perfil nomeUsuario={nomeUsuario} />
+          <ReposList nomeUsuario={nomeUsuario}/>
+      </>
+     )}
+
+     {/* <Perfil nomeUsuario="ElsonMateusFE" />
+
+     <ReposList nomeUsuario="ElsonMateusFE"/> */}
      
-     {formularioEstaVisivel && (
+     {/* {formularioEstaVisivel && (
       <Formulario/>
      )}
 
-     <button onClick={() => setFormularioEstaVisivel(!formularioEstaVisivel)} type="button">toggle form</button>
+     <button onClick={() => setFormularioEstaVisivel(!formularioEstaVisivel)} type="button">toggle form</button> */}
     </>
   )
 }
@@ -41,4 +54,6 @@ export default App
 {estaDeDia === true ? 'Bom dia' : 'Boa tarde'}
 {estaDeDia ? 'Bom dia' : 'Boa tarde'}
 {estaDeDia && 'Bom dia'}
+
+ <Perfil nome="Elson Mateus" endereco="https://github.com/ElsonMateusFE.png"/>
 */
