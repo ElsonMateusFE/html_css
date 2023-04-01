@@ -1,12 +1,12 @@
 const redesSociais = ['Facebook', 'Instagram', 'Twitter']
 
 for(let i = 0; i < redesSociais.length; i++){
-    console.log(`Eu tenho perfil na redde social: ${redesSociais[i]}`)
+    //console.log(`Eu tenho perfil na redde social: ${redesSociais[i]}`)
 }
 
 // forEach só faz iteraçao, ele não retorna nada
 redesSociais.forEach(function(nomeDaRedeSocial, indice){
-    console.log(`#${indice} Eu tenho perfil na redde social: ${nomeDaRedeSocial}`)
+    //console.log(`#${indice} Eu tenho perfil na redde social: ${nomeDaRedeSocial}`)
 })
 
 const alunos = ['Gustavo', 'Julia', 'Paula', 'Wagner']
@@ -25,7 +25,7 @@ const alunos2 = alunos.map(function(itemAtual){
     //return itemAtual
 })
 
-console.log(alunos2)
+//console.log(alunos2)
 
 const numeros = [1, 2, 3, 4, 5]
 
@@ -61,14 +61,14 @@ const todosAlunosDeFrontend = alunos2.every(function(item){
     return item.curso === 'Frontend'
 })
 
-console.log(todosAlunosDeFrontend)
+//console.log(todosAlunosDeFrontend)
 
 //Some (existe pelo menos um)
 const existeAlgumAlunoDeBackend = alunos2.some(function(item){
     return item.curso === 'Backend' && item.curso === 'Frontend'
 })
 
-console.log(existeAlgumAlunoDeBackend)
+//console.log(existeAlgumAlunoDeBackend)
 
 //Filter
 function filtraAlunosDeBackend(aluno){
@@ -88,8 +88,8 @@ const alunosDeBackend = alunos2.filter(function(item){
 //Filter atráves de função externa
 const alunosDeBackend2 = alunos2.filter(filtraAlunosDeBackend)
 
-console.log(alunosDeBackend)
-console.log(alunosDeBackend2)
+//console.log(alunosDeBackend)
+//console.log(alunosDeBackend2)
 
 // Reduce
 const nums = [10, 20, 30, 10]
@@ -99,7 +99,7 @@ const soma = nums.reduce(function(acumulador, itemAtual){
     return acumulador
 }, 0)
 
-console.log(soma)
+//console.log(soma)
 
 //Usando for
 let somaComFor = 0
@@ -108,7 +108,7 @@ for(let i = 0; i < nums.length; i ++){
     somaComFor += nums[i]
 }
 
-console.log(somaComFor)
+//console.log(somaComFor)
 
 //Usando redduce com string
 const nomesDosAlunos = alunos2.reduce(function(acumulador, itemAtual){
@@ -116,4 +116,4 @@ const nomesDosAlunos = alunos2.reduce(function(acumulador, itemAtual){
     return acumulador
 }, '')
 
-console.log(nomesDosAlunos)
+//console.log(nomesDosAlunos)
