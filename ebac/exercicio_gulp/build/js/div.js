@@ -1,1 +1,0 @@
-function ಠ_ಠ227(i,o){return i/o}module.ಠ_ಠ228=ಠ_ಠ227;
